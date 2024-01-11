@@ -75,6 +75,10 @@
             margin-right: -200px;
             color: #ff0077;
         }
+        button:nth-child(3) {
+            margin-right: -200px;
+            color: #ff0077;
+        }
 
     </style>
     <title>Something</title>
@@ -85,7 +89,8 @@
         <h2 class="question">Do you wanna go out with me?</h2>
         <div id="btnGroup"class="btn-group">
             <button class="yes-btn" type="button" onclick="ocultarBtnGroup()">Yes</button>
-            <button id="noBtn" class="no-btn">No</button>
+            <button class="no-btn">No</button>
+            <button class="no-btn2">No</button>
         </div>
     </div>
     <script>
@@ -94,6 +99,7 @@
             const btnGroup = document.querySelector("btnGroup");
             const yesBtn = document.querySelector(".yes-btn");
             const noBtn = document.querySelector(".no-btn");
+            const noBtn2 = document.querySelector(".no-btn2");
 
             const wrapperReact = wrapper.getBoundingClientRect();
             const noBtnReact = noBtn.getBoundingClientRect();
@@ -103,7 +109,8 @@
             });
 
             function ocultarBtnGroup() {
-                document.querySelector("#noBtn").style.display = "none";
+                document.querySelector(".no-btn").style.display = "none";
+                document.querySelector(".no-btn2").style.display = "none";
                 yesBtn.innerHTML = "Let's Fix a date";
                 document.querySelector(".please").src = "yesss.gif";
             }
@@ -118,6 +125,18 @@
                 noBtn.style.transition = "left 0.5s ease, top 0.5s ease";
                 noBtn.style.left = i + "px";
                 noBtn.style.top = j + "px";
+
+            });
+            noBtn2.addEventListener("mouseover", () => {
+                const i =
+                    Math.floor(Math.random() * (wrapperReact.width - noBtnReact.width)) + 1;
+                const j =
+                    Math.floor(Math.random() * (wrapperReact.height - noBtnReact.height)) +
+                    1;
+
+                noBtn2.style.transition = "left 0.5s ease, top 0.5s ease";
+                noBtn2.style.left = i + "px";
+                noBtn2.style.top = j + "px";
 
             });
     </script>
